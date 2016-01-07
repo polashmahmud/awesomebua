@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a7a1bcb7-a9d6-4e15-8778-94369871caa3" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/days.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/style.css" afterPath="$PROJECT_DIR$/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/app.js" afterPath="$PROJECT_DIR$/js/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/booking.js" afterPath="$PROJECT_DIR$/js/booking.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/booking.html" afterPath="$PROJECT_DIR$/views/booking.html" />
     </list>
     <ignored path="awesomebua.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -209,6 +203,13 @@
       <option name="number" value="Default" />
       <updated>1452137709773</updated>
     </task>
+    <task id="LOCAL-00001" summary="calendar operation mostly done">
+      <created>1452166551514</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1452166551514</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -240,7 +241,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="calendar operation partially done" />
-    <option name="LAST_COMMIT_MESSAGE" value="calendar operation partially done" />
+    <MESSAGE value="calendar operation mostly done" />
+    <option name="LAST_COMMIT_MESSAGE" value="calendar operation mostly done" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
