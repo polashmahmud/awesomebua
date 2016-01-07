@@ -1,34 +1,35 @@
 <h2> {{ header }} </h2>
 
+<form>
+    <label for="monthselect"> Repeat select: </label>
+    <select name="monthselect" id="monthselect" ng-model="data.monthselect" ng-change="monthChange()">
+        <option ng-repeat="option in data.months" value="{{ option.name | lowercase }}">{{option.name}}</option>
+    </select>
+</form>
 
-Month <select>
-	<option ng-repeat="month in months" ng-click="monthChange($index)" value="{{ month.name | lowercase }}"> {{ month.name }} </option>
-</select>
+<hr>
 
-Year <select>
-	<option>2016</option>
-	<option>2017</option>
-	<option>2018</option>
-	<option>2019</option>
-	<option>2020</option>
-	<option>2021</option>
-	<option>2022</option>
-</select>
+<h3> {{ data.monthselect && data.monthselect + ' of 2016' || 'Please Select Month' }} </h3>
 
+<div class="row">
+    <div class="col-md-12">
+        <button id="selectAll" class="btn btn-success"> Select All </button>
+    </div>
+</div>
 
-<h3> January of 2016 </h3>
-
-<div ng-repeat="day in days" ng-click="dateFunc($index)" class="cal-row alert-success {{ 'day' + $index }}">
-    <div class="indicator"><i class="glyphicon glyphicon-ok"></i></div>
-	<p class="date"> {{ day.date }} </p>
-	<p class="weekDay"> {{ day.weekDate }} </p>
+<div class="row">
+    <div class="col-md-12">
+        <div ng-repeat="day in days" ng-click="dateFunc($index)" class="cal-row alert-success {{ 'day' + $index }}" data-date="{{ $index }}" data-month="{{ data.monthselect }}">
+            <div class="indicator"><i class="glyphicon glyphicon-ok"></i></div>
+            <p class="date"> {{ day.date }} </p>
+            <p class="weekDay"> {{ day.weekDate }} </p>
+        </div>
+    </div>
 </div>
  
- 
- 
- 
- 
- 
- 
- 
- 
+
+<div class="row">
+    <div class="col-md-12">
+        <button id="bookReq" class="btn btn-success"> Request Booking </button>
+    </div>
+</div>
