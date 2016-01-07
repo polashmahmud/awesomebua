@@ -27,10 +27,41 @@ h2 {
 
 .cal-row {
     padding: 10px;
-    margin-bottom: 10px;
     width: 23%;
     float: left;
     margin: 1%;
+    position: relative;
+    cursor: pointer;
+}
+
+.cal-row.selected {
+    -webkit-transition: background 300ms;
+    -moz-transition: background 300ms;
+    -ms-transition: background 300ms;
+    -o-transition: background 300ms;
+    transition: background 300ms;
+}
+
+.cal-row .indicator {
+    visibility: hidden;
+    opacity: 0;
+    transition: all 200ms;
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 20px;
+    padding: 8px;
+    width: 44px;
+    text-align: center;
+    border-radius: 50%;
+    background: rgb(255, 185, 185);
+}
+
+.cal-row.selected .indicator {
+    opacity: 1;
+    visibility: visible;
+    animation: pulse 500ms;
+    transition: all 200ms;
 }
 
 .date {

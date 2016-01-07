@@ -2,18 +2,7 @@
 
 
 Month <select>
-	<option>January</option>
-	<option>February</option>
-	<option>March</option>
-	<option>April</option>
-	<option>May</option>
-	<option>June</option>
-	<option>July</option>
-	<option>August</option>
-	<option>September</option>
-	<option>October</option>
-	<option>November</option>
-	<option>December</option>
+	<option ng-repeat="month in months" ng-click="monthChange($index)" value="{{ month.name | lowercase }}"> {{ month.name }} </option>
 </select>
 
 Year <select>
@@ -29,7 +18,8 @@ Year <select>
 
 <h3> January of 2016 </h3>
 
-<div class="cal-row alert-success" ng-repeat="day in days">
+<div ng-repeat="day in days" ng-click="dateFunc($index)" class="cal-row alert-success {{ 'day' + $index }}">
+    <div class="indicator"><i class="glyphicon glyphicon-ok"></i></div>
 	<p class="date"> {{ day.date }} </p>
 	<p class="weekDay"> {{ day.weekDate }} </p>
 </div>

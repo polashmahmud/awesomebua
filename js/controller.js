@@ -40,36 +40,6 @@ homePage.config(function($routeProvider){
         )
 });
 
-
-homePage.controller('bookingController', function($scope){
-   $scope.header = 'booking';
-
-   $scope.days = [
-                { "weekDate": "SAT", "date" : 01},
-                { "weekDate": "SUN", "date" : 02},
-                { "weekDate": "MON", "date" : 03},
-                { "weekDate": "TUS", "date" : 04},
-                { "weekDate": "WED", "date" : 05},
-                { "weekDate": "THU", "date" : 06},
-                { "weekDate": "FRI", "date" : 07},
-                { "weekDate": "SAT", "date" : 09},
-                { "weekDate": "SUN", "date" : 10},
-                { "weekDate": "MON", "date" : 11},
-                { "weekDate": "TUS", "date" : 12},
-                { "weekDate": "WED", "date" : 13},
-                { "weekDate": "THU", "date" : 14},
-                { "weekDate": "FRI", "date" : 15},
-                { "weekDate": "SAT", "date" : 16},
-                { "weekDate": "SUN", "date" : 17},
-                { "weekDate": "MON", "date" : 18},
-                { "weekDate": "TUS", "date" : 19},
-                { "weekDate": "WED", "date" : 20},
-                { "weekDate": "THU", "date" : 21},
-                { "weekDate": "FRI", "date" : 22},
-
-            ];
-});
-
 homePage.controller('dashboardController', function($scope){
    $scope.header = 'dashboard';
 });
@@ -89,16 +59,6 @@ homePage.controller('registerController', function($scope){
 homePage.controller('welcomeController', function($scope){
    $scope.header = 'welcome';
 });
-
-
-
-
-
-// CALENDAR JSON
-
-
-
-
 
 
 
