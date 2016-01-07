@@ -23,7 +23,7 @@ h3 {
 	width: 100%;
 }
 
-.dashboard .widget {
+.widget {
     padding: 30px 15px;
     font-size: 25px;
     color: black;
@@ -82,7 +82,8 @@ h3 {
     box-shadow: none;
 }
 
-.btn:focus {
+.btn:focus,
+.btn:active {
     outline: 0;
 }
 

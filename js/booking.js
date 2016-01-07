@@ -24,20 +24,26 @@ homePage.controller('bookingController', function($scope, $http){
             {'id': 10, 'name' : 'October'},
             {'id': 11, 'name' : 'November'},
             {'id': 12, 'name' : 'December'}
-        ],
+        ]
     };
 
     $('#bookReq').on('click', function(){
-        var currentOption = $('#monthselect option:selected').text();
+        var currentOption = $('#monthselect').find('option:selected').text();
         if(currentOption){
-            var selectedDays = $('.cal-row.selected')
+            var selectedDays = $('.cal-row.selected');
             log(selectedDays);
             selectedDays.removeClass('selected');
+            $('#mealModal').modal('show');
         }
     });
 
     $('#selectAll').on('click', function(){
         $('.cal-row').addClass('selected');
+    });
+
+    $('#saveBooking').on('click', function(){
+        // Modal data sasving operation goes here
+        $('#mealModal').modal('hide');
     });
 
     $scope.monthChange = function(){
