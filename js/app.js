@@ -1,0 +1,1 @@
+var homePage = angular.module('awesomeBua', []);

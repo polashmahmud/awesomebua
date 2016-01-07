@@ -1,0 +1,39 @@
+h3 {
+    margin-top: 0;
+}
+
+ul {
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+h2 {
+	text-transform: capitalize;
+}
+
+.fclear {
+	float: left;
+	width: 100%;
+}
+
+.dashboard .widget {
+    padding: 30px 15px;
+    font-size: 25px;
+    color: black;
+}
+
+.cal-row {
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 23%;
+    float: left;
+    margin: 1%;
+}
+
+.date {
+	font-size: 40px;
+	margin: 0;
+}
