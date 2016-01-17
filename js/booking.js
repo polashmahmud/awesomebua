@@ -1,10 +1,6 @@
 homePage.controller('bookingController', function($scope, $http){
     $scope.header = 'booking';
 
-    $http.get('days.json').then(function(response){
-        $scope.days = response.data;
-    });
-
     $scope.dateFunc = function(index){
         var day = $('.day' + index);
         (day.hasClass('selected')) ? day.removeClass('selected') : day.addClass('selected');
@@ -27,26 +23,69 @@ homePage.controller('bookingController', function($scope, $http){
         ]
     };
 
+    $scope.days = [];
+    $scope.monthChange = function(){
+        $scope.days = [];
+        //weekDates are showing wrong
+        var weekDates = ['Thursday','Friday', 'Saturday','Sunday', 'Monday', 'Tuesday', 'Wednesday'];
+        var monthId = $scope.data.monthselect;
+        var days = new Date(2016, monthId, 0).getDate();
+        for (var i = 1; i <= days; i++) {
+            var weekDay = new Date(2016, monthId, i).getDay();
+            $scope.days.push({ "weekDate": weekDates[weekDay], "date" : i});
+        }
+    };
+
+    $scope.bookIt = function(){
+            // Modal data saving operation goes here
+            var bookingData = [],
+                mealData = [];
+
+            $('.meal.selected').each(function(){
+                mealData.push($(this).attr('data-meal'));
+            });
+
+            $('.cal-row.selected').each(function(i){
+                bookingData.push(
+                    {
+                        'serial' : i,
+                        'date' : $(this).attr('data-date')
+                    }
+                );
+            });
+
+            var bookRequestData = [bookingData, mealData];
+            log(bookRequestData );
+
+            /* setup and ajax request to save the data */
+
+            //$('#mealModal').modal('hide');
+            //selectedDays.removeClass('selected');
+    };
+
     $('#bookReq').on('click', function(){
         var currentOption = $('#monthselect').find('option:selected').text();
         if(currentOption){
             var selectedDays = $('.cal-row.selected');
-            log(selectedDays);
-            selectedDays.removeClass('selected');
             $('#mealModal').modal('show');
         }
     });
 
-    $('#selectAll').on('click', function(){
-        $('.cal-row').addClass('selected');
-    });
+    $(function(){
+        $('#toggle').on('click', function(){
+            $('.cal-row').toggleClass('selected');
+        });
+        $('#selectAll').on('click', function(){
+            $('.cal-row').addClass('selected');
+        });
 
-    $('#saveBooking').on('click', function(){
-        // Modal data sasving operation goes here
-        $('#mealModal').modal('hide');
-    });
+        $('#selectNone').on('click', function(){
+            $('.cal-row').removeClass('selected');
+        });
 
-    $scope.monthChange = function(){
-        log($scope.data.monthselect);
-    };
+        //Modal Operation
+        $('.meal').on('click', function(){
+            $(this).toggleClass('selected')
+        });
+    })
 });

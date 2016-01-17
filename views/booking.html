@@ -1,35 +1,39 @@
 <h2> {{ header }} </h2>
 
 <form>
-    <label for="monthselect"> Repeat select: </label>
+    <label for="monthselect"> Select Month </label>
     <select name="monthselect" id="monthselect" ng-model="data.monthselect" ng-change="monthChange()">
-        <option ng-repeat="option in data.months" value="{{ option.name | lowercase }}">{{option.name}}</option>
+        <option ng-repeat="option in data.months" value="{{ option.id}}">{{option.name}}</option>
     </select>
 </form>
 
 <hr>
 
-<h3> {{ data.monthselect && data.monthselect + ' of 2016' || 'Please Select Month' }} </h3>
+<h3 ng-hide="data.monthselect"> Please Select Month </h3>
 
-<div class="row">
+<div class="row animated zoomIn" ng-show="data.monthselect">
     <div class="col-md-12">
-        <button id="selectAll" class="btn btn-success"> Select All </button>
+        <button id="toggle" class="btn btn-success"> Toggle</button>
+        <button id="selectAll" class="btn btn-success"> Select All</button>
+        <button id="selectNone" class="btn btn-success"> Select None</button>
     </div>
 </div>
 
-<div class="row">
+<div class="row animated zoomIn" ng-show="data.monthselect">
     <div class="col-md-12">
-        <div ng-repeat="day in days" ng-click="dateFunc($index)" class="cal-row alert-success {{ 'day' + $index }}" data-date="{{ $index }}" data-month="{{ data.monthselect }}">
+        <div ng-repeat="day in days" ng-click="dateFunc($index)"
+             class="cal-row alert-success {{ 'day' + $index }} {{ day.weekDate | lowercase }}" data-date="{{ $index + 1 }}"
+             data-month="{{ data.monthselect }}">
             <div class="indicator"><i class="glyphicon glyphicon-ok"></i></div>
             <p class="date"> {{ day.date }} </p>
-            <p class="weekDay"> {{ day.weekDate }} </p>
+            <p class="weekDay"> {{ day.weekDate | uppercase }} </p>
         </div>
     </div>
 </div>
 
 <div class="row">
-    <div class="col-md-12">
-        <button id="bookReq" class="btn btn-success"> Request Booking </button>
+    <div class="col-md-12" ng-show="data.monthselect">
+        <button id="bookReq" class="btn btn-success"> Request Booking</button>
     </div>
 </div>
 
@@ -38,50 +42,55 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="mealModallLabel">Modal title</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="mealModalLabel">Modal title</h4>
             </div>
             <div class="modal-body">
                 <div class="row">
                     <div class="col-md-4">
-                        <div class="widget alert-info">
+                        <div class="widget alert-info meal" data-meal="breakfast">
                             <div class="row">
                                 <div class="col-md-4">
                                     <img src="img/breakfast.svg" width="100" height="100">
+                                    <div class="indicator"><i class="glyphicon glyphicon-ok"></i></div>
                                 </div>
                                 <div class="col-md-8">
-                                    10 <br> Breakfast
+                                    Breakfast
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="widget alert-success">
+                        <div class="widget alert-success meal" data-meal="lunch">
                             <div class="row">
                                 <div class="col-md-4">
                                     <img src="img/lunch.svg" width="100" height="100">
+                                    <div class="indicator"><i class="glyphicon glyphicon-ok"></i></div>
                                 </div>
                                 <div class="col-md-8">
-                                    10 <br> Lunch
+                                    Lunch
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="widget alert-warning">
+                        <div class="widget alert-warning meal" data-meal="dinner">
                             <div class="row">
                                 <div class="col-md-4">
                                     <img src="img/dinner.svg" width="100" height="100">
+                                    <div class="indicator"><i class="glyphicon glyphicon-ok"></i></div>
                                 </div>
                                 <div class="col-md-8">
-                                    10 <br> Dinner
+                                    Dinner
                                 </div>
                             </div>
                         </div>
                     </div>
-            </div>
-            <div class="modal-footer">
-                <button id="saveBooking" type="button" class="btn btn-success">Save changes</button>
+                </div>
+                <div class="modal-footer">
+                    <button ng-click="bookIt()" type="button" class="btn btn-success">Save changes</button>
+                </div>
             </div>
         </div>
     </div>

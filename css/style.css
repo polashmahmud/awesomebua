@@ -5,48 +5,65 @@ h3 {
 ul {
     padding: 0;
 }
-
 li {
     list-style: none;
 }
-
 h2 {
 	text-transform: capitalize;
 }
-
 h3 {
     text-transform: capitalize;
+}
+select {
+    width: 100%;
+}
+body {
+    text-align: center;
 }
 
 .fclear {
 	float: left;
 	width: 100%;
 }
-
 .widget {
     padding: 30px 15px;
     font-size: 25px;
     color: black;
 }
-
 .cal-row {
     padding: 10px;
     width: 23%;
+    text-align: left;
     float: left;
     margin: 1%;
     position: relative;
     cursor: pointer;
 }
-
-.cal-row.selected {
+.friday {
+    color: #8a6d3b;
+    background-color: #fcf8e3;
+    border-color: #faebcc;
+}
+.saturday {
+    color: #733C76;
+    background-color: #F0D8EB;
+    border-color: #E9C6E2;
+}
+.sunday {
+    color: #763C3C;
+    background-color: #F0D8D8;
+    border-color: #E9C6C6;
+}
+.cal-row.selected,
+.meal.selected {
     -webkit-transition: background 300ms;
     -moz-transition: background 300ms;
     -ms-transition: background 300ms;
     -o-transition: background 300ms;
     transition: background 300ms;
 }
-
-.cal-row .indicator {
+.cal-row .indicator,
+.meal .indicator {
     visibility: hidden;
     opacity: 0;
     transition: all 200ms;
@@ -60,19 +77,27 @@ h3 {
     border-radius: 50%;
     background: rgba(255, 185, 185, 1);
 }
-
-.cal-row.selected .indicator {
+.cal-row.selected .indicator,
+.meal.selected .indicator {
     opacity: 1;
     visibility: visible;
     animation: pulse 500ms;
     transition: all 200ms;
 }
-
+.modal-body .widget {
+    padding: 10px 15px;
+}
+.meal {
+    text-align: center;
+}
+.meal img {
+    width: 58px;
+    height: 60px;
+}
 .date {
 	font-size: 40px;
 	margin: 0;
 }
-
 .btn {
     padding: 20px 30px;
     margin: 1%;
@@ -81,15 +106,22 @@ h3 {
     border-radius: 0;
     box-shadow: none;
 }
-
 .btn:focus,
 .btn:active {
     outline: 0;
 }
-
-
 @media(max-width: 1024px) {
     .cal-row {
         width: 48%;
+    }
+}
+@media(max-width: 768px) {
+    .navbar-nav {
+        margin: 0;
+        text-align: center;
+    }
+    .navbar-brand {
+        width: 100%;
+        text-align: center;
     }
 }
