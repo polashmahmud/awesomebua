@@ -1,19 +1,23 @@
 <h2> {{ header }} </h2>
 
-<form>
+<form name="loginform" id="loginform" action="http://localhost:9000/cms/wp-login.php" method="post">
+
   <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
-  </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-  </div>
-  
-  <div class="checkbox">
-    <label>
-      <input type="checkbox"> Check me out
+    <label for="user_login" class="col-md-12 text-left">Username
+      <input type="text" name="log" id="user_login" class="input form-control" aria-describedby="login_error" value="" size="20" autocomplete="off">
     </label>
   </div>
-  <button type="submit" class="btn btn-default">Submit</button>
+
+  <p>
+    <label for="user_pass" class="col-md-12 text-left">Password<br>
+      <input type="password" name="pwd" id="user_pass" aria-describedby="login_error" class="input form-control" value="" size="20" autocomplete="off" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3QsPDiIBl+zfqgAAAdJJREFUOMvNkj9oU2EUxX/3e4+X2AYtgoIotAUVlZSiVQKCOFgwQ50cKhUcg4qbEITwvfyTjEKnCqUgbqJooQgFRXAROoiiKFWHOsdiSw0UXvK4DkloGl+wOHm2c7ice++5F/47ZLPZQ9baM21urU1Za0d61ZtOYq29FY/Hl0VkDhBARGRGRN75vl+JMnC7eCAi/cCItXZSVRsichJAVb9FGUg3933/tYicA76qaigix4FXxWLxQk+DXC43aIzZXa/XN13XHTLGLIqI0+ocApdVtSoiiUaj8aNSqbzftoLruneA67FY7M8OTaN5keawruvOApnuEM2/Xk1a6Y+p6j5VXReR/Y7jPANMu+tfDTqRz+dfAOOq+tEY07q/x1j6EqeG9rLx/QPPF5eo9fiDK8B4i5bb+pGJDBOpJH3EOJZKk5kcjX4k4CjQUNVPpVLpSVNKMHjAY315nun7D1gJoS8WjzYol8ulIAhGwzC8CWhTrfFy9h7Tj1yy+dsMO7BarfbOoBOFQkHB40TqLLt+fubL6h4uXp0iObDCzN2HVCNeOQL9nE6fZzg4yMbcG3Caan3n91/j6eMlfnmHmbpxjeTAJm8XFljb+Qpb8BIeQS3YVvMbj7WWjTVB6I8AAAAASUVORK5CYII=&quot;); background-attachment: scroll; background-position: 100% 50%; background-repeat: no-repeat;"></label>
+  </p>
+  <p class="forgetmenot text-left">
+    <label for="rememberme"><input name="rememberme" type="checkbox" id="rememberme" value="forever"> Remember Me</label>
+  </p>
+  <p class="submit">
+    <input type="submit" name="wp-submit" id="wp-submit" class="button btn btn-primary button-large" value="Log In">
+    <input type="hidden" name="redirect_to" value="http://localhost:9000/cms/wp-admin/">
+    <input type="hidden" name="testcookie" value="1">
+  </p>
 </form>
