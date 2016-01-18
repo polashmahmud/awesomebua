@@ -46,6 +46,12 @@ homePage.controller('dashboardController', function($scope){
 
 homePage.controller('loginController', function($scope){
    $scope.header = 'login';
+   $scope.login = {};
+   $scope.postLogin = function(){
+        $http.post('laravel/login', $scope.login).then(successCallback, errorCallback);
+   };
+   $scope.successCallback = function(){};
+   $scope.errorCallback = function(){};
 });
 
 homePage.controller('profileController', function($scope){
